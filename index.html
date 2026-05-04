@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贝尔·格里尔斯-荒野求生传奇</title>
+    <style>
+        body {
+            font-family: "微软雅黑", sans-serif;
+            background-color: #eef2f0;
+            margin: 0;
+            padding:30px 20px;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        /* 导航栏 */
+        .nav-container {
+            background: #fff;
+            border-bottom: 4px solid #d6a355;
+            margin-bottom: 20px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar li {
+            margin: 0 15px;
+        }
+        .navbar a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 0;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        .navbar a:hover {
+            color: #d6a355;
+            border-bottom: 2px solid #d6a355;
+        }
+
+        /* 标题 */
+        .main-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .main-title h1 {
+            font-size: 32px;
+            color: #5a6e4a;
+            margin-bottom: 5px;
+        }
+        .main-title h3 {
+            font-size: 18px;
+            color: #b87c2e;
+            font-weight: normal;
+        }
+
+        /* 两栏布局 - 无底色，只有边框 */
+        .two-columns {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .column {
+            flex: 1;
+        }
+        .info-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            background: transparent;
+        }
+        .info-card h2 {
+            color: #b87c2e;
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .info-card li {
+            color: #333;
+            margin-bottom: 10px;
+            padding: 4px 0;
+        }
+        .info-card .label {
+            font-weight: bold;
+            color: #b87c2e;
+        }
+
+        /* 图片区域 */
+        .hero-image {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .hero-image img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* 引用文字区 */
+        .quote-box {
+            text-align: center;
+            background: #f5f2ea;
+            padding: 15px;
+            border-radius: 30px;
+            margin: 20px 0;
+        }
+        .quote-box p {
+            color: #6b5a4a;
+            font-style: italic;
+            margin: 6px 0;
+            font-size: 16px;
+        }
+
+        /* 介绍段落 */
+        .intro-text {
+            background: #faf8f3;
+            padding: 18px;
+            border-radius: 12px;
+            margin: 20px 0;
+            line-height: 1.8;
+            color: #4a5a4a;
+        }
+
+        /* 章节标题 */
+        h2 {
+            color: #b87c2e;
+            font-size: 22px;
+            margin: 30px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid #d6a355;
+        }
+        h3 {
+            color: #b87c2e;
+            font-size: 18px;
+            margin: 20px 0 12px 0;
+        }
+
+        /* 列表样式 */
+        ul {
+            list-style-type: square;
+            padding-left: 30px;
+            margin: 10px 0 20px 0;
+        }
+        li {
+            color: #4a5a4a;
+            margin-bottom: 8px;
+        }
+
+        /* 技能标签 */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .skills-list li {
+            background: #f0ede5;
+            padding: 8px 20px;
+            border-radius: 25px;
+        }
+
+        /* 调侃网格 */
+        .list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .list li {
+            background: #f5f2ea;
+            padding: 8px 12px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        /* 视频 */
+        .video-box {
+            margin: 20px 0;
+        }
+        video {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+        }
+
+        /* 底部保留黑色底色 */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 30px;
+            border-radius: 12px;
+        }
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 700px) {
+            .two-columns {
+                flex-direction: column;
+            }
+            .hero-image img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-title">
+    <h1>贝尔·格里尔斯</h1>
+    <h3>———— 一个站在食物链顶端的男人</h3>
+</div>
+
+<div class="container">
+
+    <div class="nav-container">
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">更新</a></li>
+                <li><a href="#">公告</a></li>
+                <li><a href="#">图集</a></li>
+                <li><a href="#">视频</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="two-columns">
+        <div class="column">
+            <div class="info-card">
+                <h2>贝爷个人信息</h2>
+                <ul>
+                    <li><span class="label">身高：</span> 180 cm</li>
+                    <li><span class="label">血型：</span> B型</li>
+                    <li><span class="label">服役：</span> 英国特种空勤团 (SAS)</li>
+                    <li><span class="label">技能：</span> 空手道黑带、自由潜水</li>
+                </ul>
+            </div>
+        </div>
+        <div class="column">
+            <div class="info-card">
+                <h2>贝爷身体素质</h2>
+                <ul>
+                    <li>消化能力：极强</li>
+                    <li>咬合力：极强</li>
+                    <li>抗寒/抗热：极强</li>
+                    <li>脱水忍耐度：极强</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://bkimg.cdn.bcebos.com/pic/c8177f3e6709c93d7b8d89d29e3df8dcd1005493" alt="贝尔·格里尔斯">
+        <img src="https://img0.baidu.com/it/u=1577847157,3569195551&fm=253&fmt=auto&app=138&f=JPEG?w=444&h=440" alt="贝尔·格里尔斯">
+        <img src="https://bkimg.cdn.bcebos.com/pic/948bcfc8f9f38e5b7e3e6f66" alt="贝尔·格里尔斯">
+        <img src="https://img.puchedu.cn/uploads/1/253/3877538127/3511405900.jpg" alt="贝尔·格里尔斯">
+    </div>
+
+    <div class="quote-box">
+        <p>探险家、主持人、作家、励志演说家</p>
+        <p>“食物链顶端的男人”</p>
+        <p>“蛋白质界最严厉的父亲”</p>
+    </div>
+
+
+    <div class="intro-text">
+        英国探险家，贝尔·格里尔斯（贝爷），因《荒野求生》而受到中国网友的喜爱。<br>
+        贝爷以其坚韧不拔的精神和独特的生存技能而闻名于世。<br>
+        他在节目中展示了如何在极端环境下生存，包括沙漠、丛林和极地等地。<br>
+        贝爷的名言“去掉头可以生吃脆脆的”成为了他的经典语录，象征着他对生存技能的独特理解和幽默感。
+    </div>
+
+    <h2>贝爷的四大生存信条</h2>
+    <ul>
+        <li>永远保持冷静</li>
+        <li>适应环境</li>
+        <li>利用资源</li>
+        <li>坚持不懈</li>
+    </ul>
+
+    <h2>贝爷的传奇经历</h2>
+    <ul>
+        <li>1997年，作为英国最年轻的登山者之一，登顶阿空加瓜峰</li>
+        <li>2000年，贝爷成功攀登过喜马拉雅山</li>
+        <li>2005年，贝爷在亚马逊雨林中探险</li>
+        <li>2008年，贝爷在珠峰万米高空拍摄纪录片，挑战极限</li>
+    </ul>
+
+    <h2>贝爷的荒野技能</h2>
+    <ul class="skills-list">
+        <li>钻木取火</li>
+        <li>寻找水源</li>
+        <li>捕猎和采集浆果</li>
+        <li>动植物百科全书</li>
+        <li>急救手册</li>
+        <li>生存心理学</li>
+        <li>徒手攀岩等极限运动</li>
+    </ul>
+
+   
+    <h2>走马灯的时候回想起贝爷这传奇的人生经历</h2>
+    <div class="video-box">
+        <video src="https://v.douyin.com/8hq-4cYccds/ 12/06 nDu:/ h@b.Ag" controls></video>
+    </div>
+
+    <h2>中国网友为贝爷冒险经历做的调侃</h2>
+    <ul class="list">
+        <li>小虫子 切掉头部 可生吃</li>
+        <li>摄影师 相机很大 特别重</li>
+        <li>鸡肉味 嘎嘣脆的 肉三倍</li>
+        <li>贝爷牛 荒野求生 想要水</li>
+        <li>白天热 顺到晚上 特别冷</li>
+        <li>找归宿 随便挖坑 就地睡</li>
+        <li>如没水 找个容器 就地喝</li>
+        <li>在沙漠 拿个蛇皮 尿了喝</li>
+        <li>次结束 放飞自我 去游泳</li>
+        <li>要回家 标记信号 飞机送</li>
+    </ul>
+
+    <footer>
+        <p>© 2026 荒野求生粉丝站</p>
+        <p>Design by Newbie</p>
+    </footer>
+</div>
+
+</body>
+</html>
